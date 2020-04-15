@@ -1,0 +1,25 @@
+service: prekskills
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  stage: ${opt:stage, 'production'}
+  serverless-offline:
+    port: 3001
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${self:custom.stage}
+  region: us-west-2
+  environment: ${file(./env.json):${self:custom.stage}}
+
+functions:
+  app:
+    handler: handler.app
+    role: arn:aws:iam::670404560369:role/lambda-log-read-secret
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
