@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as http from 'http';
 import * as jwt from 'express-jwt';
+import * as cors from 'cors';
 import config from './config';
 
 class ExpressServer {
@@ -8,6 +9,7 @@ class ExpressServer {
   private server: http.Server;
 
   constructor(router: express.Router, dbConnectionPromise: Promise<any>) {
+    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(this.awaitPromiseMiddleware(dbConnectionPromise));
