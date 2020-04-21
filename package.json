@@ -7,9 +7,9 @@
     "build": "run-s format:fix fix lint tsc",
     "tsc": "node node_modules/typescript/bin/tsc",
     "dev": "sls offline start",
-    "deploy:dev": "sls deploy --stage dev --aws-profile personal",
-    "deploy:stage": "sls deploy --stage staging --aws-profile personal",
-    "deploy:prod": "sls deploy --stage prod -s production --aws-profile personal",
+    "deploy:dev": "sls deploy -s dev --aws-profile personal",
+    "deploy:stage": "sls deploy -s staging --aws-profile personal",
+    "deploy:prod": "sls deploy -s production --aws-profile personal",
     "format:fix": "pretty-quick --staged",
     "format:check": "prettier --config ./.prettierrc --list-different \"app/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:all": "prettier --config ./.prettierrc --write \"app/**/*{.ts,.js,.json,.css,.scss}\"",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.5",
     "aws-sdk": "^2.658.0",
-    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
@@ -37,7 +37,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^3.0.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.2",
     "@types/express-jwt": "0.0.40",
     "@types/jsonwebtoken": "^8.3.7",
