@@ -7,7 +7,7 @@ class Controller {
     const { userId } = req.user;
 
     try {
-      const user = await userService.getUser(userId);
+      const user = await userService.getById(userId);
 
       return res.send({ user });
     } catch (error) {

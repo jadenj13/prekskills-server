@@ -5,6 +5,8 @@ class Config {
   public readonly mongoDbUri = process.env.MONGO_DB_URI;
   public readonly jwtSecret = process.env.JWT_SECRET;
 
+  public readonly awsRegion = process.env.AWS_REGION;
+
   constructor() {
     this.ensureRequiredVariables();
   }

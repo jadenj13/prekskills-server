@@ -15,11 +15,12 @@ provider:
   stage: ${self:custom.stage}
   region: us-west-2
   environment: ${file(./env.json):${self:custom.stage}}
+  profile: personal
 
 functions:
   app:
     handler: handler.app
-    role: arn:aws:iam::670404560369:role/lambda-log-read-secret
+    role: arn:aws:iam::906585994835:role/lambda_s3_access
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

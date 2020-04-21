@@ -7,9 +7,9 @@
     "build": "run-s format:fix fix lint tsc",
     "tsc": "node node_modules/typescript/bin/tsc",
     "dev": "sls offline start",
-    "deploy:dev": "sls deploy --stage dev",
-    "deploy:stage": "sls deploy --stage staging",
-    "deploy:prod": "sls deploy --stage prod -s production",
+    "deploy:dev": "sls deploy --stage dev --aws-profile personal",
+    "deploy:stage": "sls deploy --stage staging --aws-profile personal",
+    "deploy:prod": "sls deploy --stage prod -s production --aws-profile personal",
     "format:fix": "pretty-quick --staged",
     "format:check": "prettier --config ./.prettierrc --list-different \"app/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:all": "prettier --config ./.prettierrc --write \"app/**/*{.ts,.js,.json,.css,.scss}\"",
@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.5",
+    "aws-sdk": "^2.658.0",
     "bcrypt": "^4.0.1",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
@@ -32,6 +33,7 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.8.10",
     "serverless-http": "^2.3.1",
+    "uuid": "^7.0.3",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -42,6 +44,7 @@
     "@types/lodash": "^4.14.149",
     "@types/mongoose": "^5.7.0",
     "@types/node": "^13.5.1",
+    "@types/uuid": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "babel-jest": "^25.1.0",

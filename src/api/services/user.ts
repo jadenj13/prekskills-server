@@ -1,11 +1,8 @@
-import { User } from '../../db/models';
+import CrudService from './crud';
+import { User, UserDocument } from '../../db/models';
 
-class UserService {
-  public getUser = async (userId: string) => {
-    const user = await User.findById(userId);
-
-    return user;
-  };
+class UserService extends CrudService<UserDocument> {
+  Model = User;
 }
 
 export default new UserService();

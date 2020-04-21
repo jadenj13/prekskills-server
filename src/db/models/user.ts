@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-interface User {
+interface IUser {
   name: string;
   email: string;
   password: string;
@@ -8,7 +8,7 @@ interface User {
   created: Date;
 }
 
-export interface UserDocument extends User, mongoose.Document {}
+export interface UserDocument extends IUser, mongoose.Document {}
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
